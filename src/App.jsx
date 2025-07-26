@@ -3,7 +3,6 @@ import { BarChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveConta
 import { PlusCircle, Briefcase, User, TrendingUp, BookOpen, Percent, CheckCircle, XCircle, LogOut, Loader2 } from 'lucide-react';
 
 // --- PASO 1: CONFIGURACIÓN DE FIREBASE ---
-// Importa las funciones de Firebase que necesitas.
 import { initializeApp } from "firebase/app";
 import { 
     getAuth, 
@@ -23,13 +22,15 @@ import {
     setDoc
 } from "firebase/firestore";
 
+// --- CÓDIGO SEGURO: LEE LAS LLAVES DESDE VARIABLES DE ENTORNO ---
+// Ya no se escriben las llaves directamente en el código.
 const firebaseConfig = {
-  apiKey: "AIzaSyD-McRVXP0NGwESkcdAnvRBBlQWr-ElSMg",
-  authDomain: "bells-fund.firebaseapp.com",
-  projectId: "bells-fund",
-  storageBucket: "bells-fund.firebasestorage.app",
-  messagingSenderId: "934607875467",
-  appId: "1:934607875467:web:69209a56c1e6f4f1c0938e"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID
 };
 
 // Inicializa Firebase y sus servicios
